@@ -1,0 +1,3 @@
+[submodule "vendor/addon-wireguard-client"]
+	path = vendor/addon-wireguard-client
+	url = https://github.com/bigmoby/addon-wireguard-client.git
