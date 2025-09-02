@@ -1,3 +1,7 @@
 [submodule "vendor/addon-wireguard-client"]
 	path = vendor/addon-wireguard-client
 	url = https://github.com/bigmoby/addon-wireguard-client.git
+[submodule "tesla"]
+	path = tesla
+	url = git@github.com:adregner/ha_tesla.git
+	branch = energy-tariffs
