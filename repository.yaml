@@ -1,4 +1,5 @@
 # https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
+# Each add-on then lives in its own top-level folder (see ahome-enforcer/).
 name: A Home HA Addons Repo
 url: 'https://github.com/adregner/homeassistant-repo'
 maintainer: Andrew Regner <andrew@aregner.com>
