@@ -3,5 +3,5 @@
 	url = https://github.com/bigmoby/addon-wireguard-client.git
 [submodule "tesla"]
 	path = tesla
-	url = git@github.com:adregner/ha_tesla.git
+	url = https://github.com/adregner/ha_tesla
 	branch = energy-tariffs
