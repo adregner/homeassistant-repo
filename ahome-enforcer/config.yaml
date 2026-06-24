@@ -26,10 +26,20 @@ homeassistant_api: true
 ingress: true
 ingress_port: 8099
 panel_icon: mdi:shield-home
+# Every group declared under `schema` must also appear under `options`, even
+# when all its fields are optional — the Supervisor requires the parent dict to
+# be present (home-assistant/supervisor#2559, #4606). So seed them all here.
 options:
   source: websocket
   log:
     level: info
+  mqtt:
+    topic_prefix: homeassistant
+  intervals:
+    full_state_fetch: 5m
+    full_recompute: 1m
+  http:
+    ingress_only: true
 schema:
   source: list(websocket|mqtt)
   log:
