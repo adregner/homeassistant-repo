@@ -8,7 +8,7 @@
 # Keep `version` in sync with the published image tag and with
 # ahome-enforcer/build/ha-addon/config.yaml.
 name: AHome Enforcer
-version: "0.2.0"
+version: "0.2.1"
 slug: ahome_enforcer
 description: Declarative, state-based rule enforcement for Home Assistant
 url: https://github.com/adregner/ahome-enforcer
