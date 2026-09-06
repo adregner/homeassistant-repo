@@ -26,11 +26,24 @@ homeassistant_api: true
 ingress: true
 ingress_port: 8099
 panel_icon: mdi:shield-home
+# Bind-mount this add-on's own config folder at /config so rule files live
+# somewhere users can actually reach: it surfaces on the host under
+# /addon_configs/<slug>, which the Samba, File Editor and Studio Code Server
+# add-ons all expose. The folder belongs to this add-on alone, so mapping it
+# writable grants nothing over the rest of the Home Assistant configuration.
+# The mount path is explicit: Supervisor mounts a folder at /<type-name>
+# (here /addon_config) unless `path:` says otherwise.
+map:
+  - type: addon_config
+    read_only: false
+    path: /config
 # Every group declared under `schema` must also appear under `options`, even
 # when all its fields are optional — the Supervisor requires the parent dict to
 # be present (home-assistant/supervisor#2559, #4606). So seed them all here.
 options:
   source: websocket
+  paths:
+    rules_dir: /config/rules
   log:
     level: info
   mqtt:
@@ -42,6 +55,8 @@ options:
     ingress_only: true
 schema:
   source: list(websocket|mqtt)
+  paths:
+    rules_dir: str?
   log:
     level: list(debug|info|warn|error)?
   mqtt:
